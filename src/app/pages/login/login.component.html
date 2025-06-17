@@ -1,12 +1,37 @@
 <h2>Prijava</h2>
 
-<form (ngSubmit)="login()">
-  <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required />
-  <input type="password" [(ngModel)]="lozinka" name="lozinka" placeholder="Lozinka" required />
+<form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+  <input
+    type="email"
+    [(ngModel)]="email"
+    name="email"
+    placeholder="Email"
+    required
+    #emailInput="ngModel"
+  />
+  <div class="error" *ngIf="emailInput.invalid && emailInput.touched">
+    <small *ngIf="emailInput.errors?.['required']">Email je obavezan.</small>
+    <small *ngIf="emailInput.errors?.['email']">Unesite ispravan email.</small>
+  </div>
+  <input
+    type="password"
+    [(ngModel)]="lozinka"
+    name="lozinka"
+    placeholder="Lozinka"
+    required
+    minlength="3"
+    #lozinkaInput="ngModel"
+  />
+  <div class="error" *ngIf="lozinkaInput.invalid && lozinkaInput.touched">
+    <small *ngIf="lozinkaInput.errors?.['required']">Lozinka je obavezna.</small>
+    <small *ngIf="lozinkaInput.errors?.['minlength']">
+      Lozinka mora imati najmanje 3 karaktera.
+    </small>
+  </div>
+
   <button type="submit">Uloguj se</button>
 </form>
 
 <p *ngIf="error" class="error" style="color: red;">{{ error }}</p>
 
 <p>Nemate nalog? <a routerLink="/register">Registrujte se</a></p>
-
