@@ -1,0 +1,28 @@
+<div class="pet-card" (click)="openDetails()">
+  <img
+  [src]="pet.slikaUrl"
+  alt="{{ pet.naziv }}"
+  (error)="onImgError($event)"
+  class="pet-image"
+  />
+  <h3>{{ pet.naziv }}</h3>
+  <p><strong>Starost:</strong> {{ pet.starost }} {{ pet.starost === 1 ? 'godina' : 'godine' }}</p>
+  <div class="paw-container">
+    <ng-container *ngFor="let i of [1,2,3,4,5]; let idx = index">
+      <div class="paw-wrapper">
+        <lucide-icon name="paw-print" class="paw-base"></lucide-icon>
+        <lucide-icon
+          name="paw-print"
+          class="paw-overlay"
+          [style.width.%]="getPawPercent(pet.ocena, i)"
+        ></lucide-icon>
+      </div>
+    </ng-container>
+  </div>  
+  <p><strong>Cena:</strong> {{ pet.cena | currency:'RSD' }}</p>
+  <button (click)="openDetails()">
+    <lucide-icon name="paw-print" size="16" class="icon"></lucide-icon> Detalji
+  </button>
+</div>
+
+  

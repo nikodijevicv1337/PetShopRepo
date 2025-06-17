@@ -1,0 +1,85 @@
+.pet-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  max-width: 240px;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .pet-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+  }
+
+  h3 {
+    margin: 0.5rem 0 0.2rem;
+    font-size: 1.1rem;
+    color: var(--color-primary);
+  }
+
+  p {
+    margin: 0.2rem 0;
+    font-size: 0.95rem;
+    color: #555;
+  }
+
+  .paw-container {
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem 0;
+
+    .paw-wrapper {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      margin: 0 2px;
+    }
+
+    .paw-base {
+      color: #ddd;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .paw-overlay {
+      color: gold;
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+    }
+  }
+
+  button {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 0.4rem 0.9rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+
+    .icon {
+      stroke-width: 2;
+    }
+  }
+
+  button:hover {
+    background-color: #519d51;
+  }
+}

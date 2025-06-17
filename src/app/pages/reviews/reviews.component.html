@@ -1,0 +1,48 @@
+<h2 class="title">Recenzije</h2>
+
+<div *ngIf="rezervacije.length === 0" class="empty">
+  <p>Nemate nijednu preuzetu rezervaciju koju možete oceniti.</p>
+</div>
+
+<div class="table-wrapper" *ngIf="rezervacije.length > 0">
+  <table class="rez-table">
+    <thead>
+      <tr>
+        <th>Slika</th>
+        <th>Naziv</th>
+        <th>Vrsta</th>
+        <th>Cena</th>
+        <th>Ocenite</th>
+        <th>Akcija</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let r of rezervacije">
+        <td><img [src]="r.pet.slikaUrl" [alt]="r.pet.naziv" /></td>
+        <td>{{ r.pet.naziv }}</td>
+        <td>{{ r.pet.vrsta }}</td>
+        <td>{{ r.pet.cena | currency:'RSD' }}</td>
+        <td>
+          <div class="paw-container">
+            <ng-container *ngFor="let i of [1,2,3,4,5]">
+              <span
+                class="paw"
+                [class.selected]="i <= (ocenaZaRecenziju[r.id] || 0)"
+                (click)="ocenaZaRecenziju[r.id] = i"
+              >🐾</span>
+            </ng-container>
+          </div>
+        </td>
+        <td>
+          <button
+            class="btn primary"
+            (click)="sacuvajRecenziju(r)"
+            [disabled]="!ocenaZaRecenziju[r.id]"
+          >
+            Sačuvaj
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

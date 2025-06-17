@@ -1,0 +1,52 @@
+<div class="container">
+  <aside class="filters">
+    <h3>Filteri</h3>
+  
+    <label>Naziv</label>
+    <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="applyFilter()" />
+  
+    <label>Vrsta</label>
+    <select [(ngModel)]="selectedVrsta" (ngModelChange)="applyFilter()">
+      <option value="">Sve</option>
+      <option *ngFor="let v of vrste" [value]="v">{{ v }}</option>
+    </select>
+  
+    <label>Veličina</label>
+    <select [(ngModel)]="selectedVelicina" (ngModelChange)="applyFilter()">
+      <option value="">Sve</option>
+      <option *ngFor="let v of velicine" [value]="v">{{ v }}</option>
+    </select>
+  
+    <label>Starost</label>
+    <select [(ngModel)]="selectedStarost" (ngModelChange)="applyFilter()">
+      <option value="">Sve</option>
+      <option value="mlad">0–1 god</option>
+      <option value="odrastao">2–4 god</option>
+      <option value="stariji">5+ god</option>
+    </select>
+  
+    <label>Poreklo</label>
+    <select [(ngModel)]="selectedPoreklo" (ngModelChange)="applyFilter()">
+      <option value="">Sva</option>
+      <option *ngFor="let p of porekla" [value]="p">{{ p }}</option>
+    </select>
+  
+    <label>Minimalna ocena</label>
+    <select [(ngModel)]="selectedOcena" (ngModelChange)="applyFilter()">
+      <option value="0">Sve</option>
+      <option value="3">3+</option>
+      <option value="4">4+</option>
+      <option value="4.5">4.5+</option>
+    </select>
+  
+    <label>Maksimalna cena: {{ maxCena }} RSD</label>
+    <input type="range" [(ngModel)]="maxCena" (change)="applyFilter()" min="1000" max="50000" step="500" />
+    <div *ngIf="filteredPets.length === 0" class="empty">
+      <p>Nema ljubimaca koji odgovaraju zadatim filterima 😢</p>
+    </div>    
+  </aside>
+  <section class="pet-cards">
+    <app-pet-card *ngFor="let pet of filteredPets" [pet]="pet"></app-pet-card>
+  </section>
+</div>
+

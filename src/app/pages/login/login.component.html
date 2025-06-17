@@ -1,0 +1,12 @@
+<h2>Prijava</h2>
+
+<form (ngSubmit)="login()">
+  <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required />
+  <input type="password" [(ngModel)]="lozinka" name="lozinka" placeholder="Lozinka" required />
+  <button type="submit">Uloguj se</button>
+</form>
+
+<p *ngIf="error" class="error" style="color: red;">{{ error }}</p>
+
+<p>Nemate nalog? <a routerLink="/register">Registrujte se</a></p>
+

@@ -1,0 +1,70 @@
+<!-- HERO sekcija -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Dobrodošli u PetShop!</h1>
+    <p>Pronađi savršenog ljubimca za svoj dom. 🐾</p>
+    <a routerLink="/pets" class="btn">Pogledaj sve ljubimce</a>
+  </div>
+</section>
+
+<!-- KATEGORIJE -->
+<section class="categories">
+  <h2>Pretraži po vrstama</h2>
+  <div class="category-grid">
+    <a [routerLink]="['/pets']" [queryParams]="{ selectedVrsta: 'Pas' }" class="category">🐶 Psi</a>
+    <a [routerLink]="['/pets']" [queryParams]="{ selectedVrsta: 'Macka' }" class="category">🐱 Mačke</a>
+    <a [routerLink]="['/pets']" [queryParams]="{ selectedVrsta: 'Ptica' }" class="category">🐦 Ptice</a>
+    <a [routerLink]="['/pets']" [queryParams]="{ selectedVrsta: 'Riba' }" class="category">🐠 Ribe</a>
+    <a [routerLink]="['/pets']" [queryParams]="{ selectedVrsta: 'Glodar' }" class="category">🐹 Glodari</a>
+    <a [routerLink]="['/pets']" [queryParams]="{ selectedVrsta: 'Egzoticni' }" class="category">🦎 Egzotični</a>
+  </div>
+</section>
+
+<section class="popular">
+  <h2>Najpopularniji ljubimci</h2>
+  <div class="pet-grid">
+    <div class="pet-card" *ngFor="let pet of popularPets">
+      <img [src]="pet.slikaUrl" [alt]="pet.naziv" />
+      <h3>{{ pet.naziv }}</h3>
+      <p>{{ pet.opis }}</p>
+      <a [routerLink]="['/pets', pet.id]" class="btn">Detalji</a>
+    </div>
+  </div>
+</section>
+
+<section class="how-it-works">
+  <h2>Kako funkcioniše PetShop?</h2>
+  <div class="steps">
+    <div class="step">
+      <h3>1. Pregledaj ljubimce</h3>
+      <p>Koristi filtre ili Petka 🐾 da pronađeš savršenog ljubimca.</p>
+    </div>
+    <div class="step">
+      <h3>2. Pročitaj recenzije</h3>
+      <p>Vidi šta drugi korisnici misle o ljubimcima.</p>
+    </div>
+    <div class="step">
+      <h3>3. Rezerviši</h3>
+      <p>Jednim klikom rezerviši svog novog prijatelja!</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <h2>Imaš pitanje?</h2>
+  <p>Piši našem asistentu <strong>Petku 🐾</strong> klikom na ikonicu ili nas kontaktiraj direktno:</p>
+  <a href="mailto:podrska@petshop.rs" class="btn">podrska&#64;petshop.rs</a>
+</section>
+
+<!-- RECENZIJE (opciono) -->
+<section class="testimonials">
+  <h2>Šta naši kupci kažu</h2>
+  <div class="testimonial">
+    <p>"Kupili smo mačku iz PetShop-a i oduševljeni smo. Petko nas je lepo vodio!"</p>
+    <span>– Ivana, Beograd</span>
+  </div>
+  <div class="testimonial">
+    <p>"Jednostavno, brzo i bez stresa. Chatbot Petko je genijalan!"</p>
+    <span>– Marko, Novi Sad</span>
+  </div>
+</section>

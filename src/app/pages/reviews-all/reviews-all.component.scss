@@ -1,0 +1,100 @@
+.title {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.8rem;
+}
+
+.alert {
+  max-width: 800px;
+  margin: 1rem auto;
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  text-align: center;
+
+  a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    margin-left: 0.5rem;
+  }
+}
+
+.empty {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  color: #777;
+}
+
+.table-wrapper {
+  max-width: 1000px;
+  margin: 2rem auto;
+  overflow-x: auto;
+}
+
+.rez-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+
+  th, td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+  }
+
+  th {
+    background-color: var(--color-primary);
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+  }
+
+  img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+}
+
+.paw-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  flex-wrap: nowrap;
+}
+
+.paw-wrapper {
+  position: relative;
+  width: 22px;
+  height: 22px;
+}
+
+.paw-base {
+  color: #ccc;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.paw-overlay {
+  color: orange;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.ocena-text {
+  margin-left: 8px;
+  font-size: 0.9rem;
+  color: #555;
+}

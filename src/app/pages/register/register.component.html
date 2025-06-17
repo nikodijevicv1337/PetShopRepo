@@ -1,0 +1,42 @@
+<h2>Registracija</h2>
+
+<form #form="ngForm" (ngSubmit)="register(form)">
+  <input type="text" [(ngModel)]="user.ime" name="ime" placeholder="Ime" required #ime="ngModel" />
+  <div class="error" *ngIf="ime.invalid && ime.touched">Ime je obavezno.</div>
+
+  <input type="text" [(ngModel)]="user.prezime" name="prezime" placeholder="Prezime" required #prezime="ngModel" />
+  <div class="error" *ngIf="prezime.invalid && prezime.touched">Prezime je obavezno.</div>
+
+  <input type="email" [(ngModel)]="user.email" name="email" placeholder="Email" required email #email="ngModel" />
+  <div class="error" *ngIf="email.invalid && email.touched">
+    Unesite validnu email adresu.
+  </div>
+
+  <input type="tel" [(ngModel)]="user.telefon" name="telefon" placeholder="Telefon" required pattern="[0-9+ ]+" #telefon="ngModel" />
+  <div class="error" *ngIf="telefon.invalid && telefon.touched">
+    Unesite broj telefona (samo brojevi i znak +).
+  </div>
+
+  <input type="text" [(ngModel)]="user.adresa" name="adresa" placeholder="Adresa" required #adresa="ngModel" />
+  <div class="error" *ngIf="adresa.invalid && adresa.touched">Adresa je obavezna.</div>
+
+  <input type="password" [(ngModel)]="user.lozinka" name="lozinka" placeholder="Lozinka" required minlength="6" #lozinka="ngModel" />
+  <div class="error" *ngIf="lozinka.invalid && lozinka.touched">
+    Lozinka mora imati najmanje 6 karaktera.
+  </div>
+
+  <label>Omiljene vrste:</label>
+  <div *ngFor="let vrsta of sveVrste">
+    <input
+      type="checkbox"
+      [value]="vrsta"
+      [checked]="user.omiljeneVrste.includes(vrsta)"
+      (change)="toggleVrsta(vrsta)"
+    />
+    {{ vrsta }}
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Registruj se</button>
+</form>
+
+<p>Već imate nalog? <a routerLink="/login">Ulogujte se</a></p>

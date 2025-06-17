@@ -1,0 +1,23 @@
+<h2>Moj profil</h2>
+
+<form (ngSubmit)="save()">
+  <input type="text" [(ngModel)]="user.ime" name="ime" placeholder="Ime" required />
+  <input type="text" [(ngModel)]="user.prezime" name="prezime" placeholder="Prezime" required />
+  <input type="email" [(ngModel)]="user.email" name="email" disabled />
+  <input type="tel" [(ngModel)]="user.telefon" name="telefon" placeholder="Telefon" required />
+  <input type="text" [(ngModel)]="user.adresa" name="adresa" placeholder="Adresa" required />
+
+  <label>Omiljene vrste:</label>
+  <div *ngFor="let vrsta of sveVrste">
+    <input
+      type="checkbox"
+      [value]="vrsta"
+      [checked]="user.omiljeneVrste.includes(vrsta)"
+      (change)="toggleVrsta(vrsta)"
+    />
+    {{ vrsta }}
+  </div>
+
+  <button type="submit">Sačuvaj izmene</button>
+</form>
+

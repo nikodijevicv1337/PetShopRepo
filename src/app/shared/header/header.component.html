@@ -1,0 +1,44 @@
+<header class="header">
+  <div class="logo">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      🐾 PetShop
+    </a>
+  </div>
+
+  <nav class="nav">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      <lucide-icon name="home"></lucide-icon> Početna
+    </a>
+
+    <a routerLink="/pets" routerLinkActive="active">
+      <lucide-icon name="paw-print"></lucide-icon> Svi ljubimci
+    </a>
+
+    <ng-container *ngIf="authService.isLoggedIn(); else gostMeni">
+      <a routerLink="/moje-rezervacije" routerLinkActive="active">
+        <lucide-icon name="package-check"></lucide-icon> Moje rezervacije
+      </a>
+
+      <a routerLink="/moje-recenzije" routerLinkActive="active">
+        <lucide-icon name="star"></lucide-icon> Moje recenzije
+      </a>
+
+      <a routerLink="/profile" routerLinkActive="active">
+        <lucide-icon name="user"></lucide-icon> Profil
+      </a>
+
+      <button (click)="logout()">
+        <lucide-icon name="log-out"></lucide-icon> Izloguj se
+      </button>
+    </ng-container>
+
+    <ng-template #gostMeni>
+      <a routerLink="/login" routerLinkActive="active">
+        <lucide-icon name="log-in"></lucide-icon> Uloguj se
+      </a>
+      <a routerLink="/register" routerLinkActive="active">
+        <lucide-icon name="pencil-line"></lucide-icon> Registruj se
+      </a>
+    </ng-template>
+  </nav>
+</header>

@@ -1,0 +1,17 @@
+<div class="chat-toggle" (click)="toggleChat()">🐾</div>
+
+<div class="chat-box" *ngIf="showChat">
+  <div class="chat-header">Petko 🐾</div>
+
+  <div class="chat-messages">
+    <div *ngFor="let msg of messages" [ngClass]="msg.sender">
+      <span [innerHTML]="formatMessage(msg.text)"></span>
+    </div>
+  </div>
+
+  <div class="chat-input">
+    <input [(ngModel)]="message" (keydown.enter)="sendMessage()" placeholder="Napiši poruku..." />
+    <button (click)="sendMessage()">➤</button>
+  </div>
+</div>
+

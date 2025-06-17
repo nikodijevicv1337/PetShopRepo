@@ -1,0 +1,33 @@
+<div class="detail-wrapper">
+  <div *ngIf="pet" class="pet-detail">
+    <img [src]="pet.slikaUrl" alt="{{ pet.naziv }}" class="pet-image" />
+    <div class="pet-info">
+      <h2>{{ pet.naziv }}</h2>
+      <p><strong>Opis:</strong> {{ pet.opis }}</p>
+      <p><strong>Vrsta:</strong> {{ pet.vrsta }}</p>
+      <p><strong>Starost:</strong> {{ pet.starost }} godine</p>
+      <p><strong>Veličina:</strong> {{ pet.velicina }}</p>
+      <p><strong>Poreklo:</strong> {{ pet.poreklo }}</p>
+      <p><strong>Ocena:</strong></p>
+      <div class="paw-container">
+        <ng-container *ngFor="let i of [1,2,3,4,5]">
+          <div class="paw-wrapper">
+            <lucide-icon name="paw-print" class="paw-base"></lucide-icon>
+            <lucide-icon name="paw-print" class="paw-overlay" [style.width.%]="getPawPercent(pet.ocena, i)"></lucide-icon>
+          </div>
+        </ng-container>
+        <span class="ocena-text">
+          ({{ pet.ocena }} / 5 · {{ pet.brojOcena }} {{ pet.brojOcena === 1 ? 'ocena' : 'ocena' }})
+        </span>
+      </div>   
+
+      <p><strong>Cena:</strong> {{ pet.cena | currency:'RSD' }}</p>
+
+      <button class="btn primary" (click)="rezervisi()">
+        <lucide-icon name="shopping-cart"></lucide-icon> Rezerviši
+      </button>
+    </div>
+  </div>
+</div>
+
+  

@@ -1,0 +1,43 @@
+<h2 class="title">Sve recenzije</h2>
+
+<div *ngIf="neocenjene.length > 0" class="alert">
+  ⚠️ Imate {{ neocenjene.length }} ljubim(a)ca koje još niste ocenili! 
+  <a routerLink="/recenzije">Oceni sada</a>
+</div>
+
+<div *ngIf="sveOcene.length === 0" class="empty">
+  <p>Još niste ocenili nijednog ljubimca.</p>
+</div>
+
+<div class="table-wrapper" *ngIf="sveOcene.length > 0">
+  <table class="rez-table">
+    <thead>
+      <tr>
+        <th>Slika</th>
+        <th>Naziv</th>
+        <th>Vrsta</th>
+        <th>Vaša ocena</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let r of sveOcene">
+        <td>
+          <img [src]="r.pet.slikaUrl" [alt]="r.pet.naziv" />
+        </td>
+        <td>{{ r.pet.naziv }}</td>
+        <td>{{ r.pet.vrsta }}</td>
+        <td>
+          <div class="paw-container">
+            <ng-container *ngFor="let i of [1,2,3,4,5]">
+              <div class="paw-wrapper">
+                <lucide-icon name="paw-print" class="paw-base"></lucide-icon>
+                <lucide-icon name="paw-print" class="paw-overlay" [style.width.%]="getPawPercent(r.ocena ?? 0, i)"></lucide-icon>
+              </div>
+            </ng-container>
+            <span class="ocena-text">({{ r.ocena }} / 5)</span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.filters {
+  flex: 0 0 250px;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 2rem;
+  height: fit-content;
+
+  h3 {
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+  }
+
+  label {
+    display: block;
+    font-weight: 600;
+    margin-top: 1rem;
+    color: #444;
+  }
+
+  input[type="text"],
+  select,
+  input[type="range"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.4rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+  }
+
+  .empty {
+    margin-top: 2rem;
+    font-style: italic;
+    color: var(--color-gray-dark);
+    text-align: center;
+  }
+}
+
+.pet-cards {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
