@@ -19,6 +19,8 @@ npm install
 node server.js
 ng serve
 
+---
+
 ## Korisnički tok
 
 Poseta sajtu: Korisnik može pregledati ljubimce i koristiti filtere i agenta i kao gost.
@@ -29,6 +31,8 @@ Rezervacija ljubimca: Čuvanje rezervacije lokalno uz toast poruku o uspehu.
 Ocenjivanje: Nakon što je ljubimac preuzet, korisnik može dati ocenu i recenziju.
 Pristup recenzijama: Pogledaj sve prethodne recenzije na posebnoj stranici.
 
+---
+
 ## Petko – virtuelni agent
 
 Aplikacija koristi Dialogflow agenta povezanog preko Express servera (port 3000). Petko omogućava:
@@ -36,6 +40,8 @@ Pretragu ljubimaca (SearchPet intent)
 Rezervaciju ljubimaca (ReservePet intent)
 Detekciju entiteta: ime ljubimca, cena, starost, vrsta, lokacija
 Povezivanje sa stranicom /pets i rezervacijama
+
+---
 
 ## Implementirane funkcionalnosti
 ✅ Registracija / Login / Logout
@@ -47,5 +53,7 @@ Povezivanje sa stranicom /pets i rezervacijama
 ✅ Pregled svih recenzija
 ✅ Petko AI agent
 ✅ Responsivan dizajn
+
+---
 
 > Napomena: Aplikacija koristi `dialogflow-key.json` koji sadrži Google Credentials za komunikaciju sa agentom. Ovaj fajl nije verzionisan zbog sigurnosti.
