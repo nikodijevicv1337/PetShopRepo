@@ -8,46 +8,13 @@
 
 - **Angular 17** – frontend framework
 - **LocalStorage** – za simulaciju backend funkcionalnosti
-- **Dialogflow (Rasa AI)** – za komunikaciju sa agentom (Petko)
+- **Dialogflow** – za komunikaciju sa agentom (Petko)
 - **SCSS** – za stilizaciju i responzivni dizajn
-- **Lucide ikone** – minimalističke vektorske ikonice
 
 ---
 
-## 📁 Struktura projekta
-
-src/
-│
-├── app/
-│ ├── core/
-│ │ ├── models/ # Modeli: Pet, User, Reservation
-│ │ └── services/ # Servisi: auth, toast, pet, rezervacije, agent
-│ │
-│ ├── features/
-│ │ ├── home/ # Početna stranica
-│ │ └── pets/ # Pet-lista, kartice, detalji
-│ │  ├── pet-list/
-│ │  ├── pet-card/
-│ │  └── pet-details/
-│ │
-│ ├── pages/
-│ │ ├── login/
-│ │ ├── register/
-│ │ ├── profile/
-│ │ ├── my-reservations/
-│ │ ├── reviews/
-│ │ └── reviews-all/
-│ │
-│ └── shared/
-│  ├── header/
-│  ├── footer/
-│  ├── chat/
-│  └── toast/
-
-
 ## 🔧 Pokretanje projekta lokalno
 
-```bash
 npm install
 node server.js
 ng serve
