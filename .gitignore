@@ -13,7 +13,6 @@ yarn-error.log*
 # Environment and secrets
 .env
 *.env
-dialogflow-key.json
 
 # Build output
 /coverage
