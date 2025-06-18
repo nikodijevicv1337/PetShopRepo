@@ -80,3 +80,5 @@ Povezivanje sa stranicom /pets i rezervacijama
 ✅ Pregled svih recenzija
 ✅ Petko AI agent
 ✅ Responsivan dizajn
+
+> Napomena: Aplikacija koristi `dialogflow-key.json` koji sadrži Google Credentials za komunikaciju sa agentom. Ovaj fajl nije verzionisan zbog sigurnosti.
